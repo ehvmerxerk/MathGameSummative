@@ -10,7 +10,8 @@ import java.util.Random;
  * @author adriantang
  */
 public class MathGameMain {
-
+    
+    public static Player[] playerDatabase = new Player[10];
     /**
      * @param args the command line arguments
      */
@@ -19,9 +20,12 @@ public class MathGameMain {
        Scanner scanner = new Scanner(System.in);
        Random rand = new Random();
        
-       int[] highscores = new int[10];
+       for (int i = 0; i < playerDatabase.length; i++){
+           playerDatabase[i] = new Player();
+       }
+       
        int choice = 0;
-       while (choice !=5){
+       do{
            System.out.println("Please select the following options with 1-5"); 
            System.out.println("1. Start new game");
            System.out.println("2. Highest and lowest scores");
@@ -30,7 +34,7 @@ public class MathGameMain {
            System.out.println("5. Quit");
            choice = scanner.nextInt();
            if (choice == 1){
-               NewGame.newGame();
+              NewGame.newGame();
            }else if(choice == 2){
                
            }else if (choice == 3){
@@ -38,11 +42,11 @@ public class MathGameMain {
            }else if (choice ==4){
                
            }else if (choice == 5){
-               
+               break;
            }else{
                
            }
-       }
+       }while (choice !=5);
     }
     
 }
